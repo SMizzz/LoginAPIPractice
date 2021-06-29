@@ -44,10 +44,8 @@ class ViewController: UIViewController {
     
     AF.request("http://localhost:3000/users/login", method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseData(completionHandler: { (response) in
       switch response.result {
-      
       case .success(let data):
         do {
-          //          guard let responseData = response.result else { return }
           print("response data \(data)")
           if response.response?.statusCode == 200 {
             print("성공")
@@ -61,6 +59,9 @@ class ViewController: UIViewController {
             return
           } else {
             print("Please try again")
+            let alertVC = UIAlertController(title: "확인!", message: "아이디와 패스워드를 다시 작성해주세요.", preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alertVC, animated: true, completion: nil)
             return
           }
         } catch let error {
@@ -73,30 +74,6 @@ class ViewController: UIViewController {
         return
       }
     })
-    
-    
-    //    { (response) in
-    //
-    //      switch response.result {
-    //      case .success(let data):
-    //        print("성공")
-    //        let jsonData = JSON(data)
-    //        guard let dictionaries = try? jsonData()
-    //        print("data is \(data)")
-    //        let jsonData = JSON(data)
-    //        print(jsonData)
-    //        let wnd = UIApplication.shared.windows.filter{$0.isKeyWindow}.first
-    //        let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "MainVC") as! MainViewController
-    //        wnd?.rootViewController = mainVC
-    //        return
-    //      case .failure(let error):
-    //        print("실패")
-    //        print(error.localizedDescription)
-    //        return
-    //      }
-    //    }
-    //
-    //    print(",,,,")
   }
   
   @IBAction func signupBtnTap(_ sender: Any) {
