@@ -15,13 +15,16 @@ class SignupViewController: UIViewController {
   
   @IBOutlet weak var passwordTextField: UITextField!
   
-  @IBOutlet weak var confirmPasswordTextField: UITextField!
+  @IBOutlet weak var nameTextField: UITextField!
   
     override func viewDidLoad() {
         super.viewDidLoad()
       navigationController?.navigationBar.isHidden = false
       navigationController?.navigationBar.barTintColor = .white
         // Do any additional setup after loading the view.
+      emailTextField.autocorrectionType = .no
+      passwordTextField.autocorrectionType = .no
+      
     }
   
   @IBAction func signupBtnTap(_ sender: Any) {
@@ -30,15 +33,16 @@ class SignupViewController: UIViewController {
     }
     
     let body: Parameters = [
-      "name": "mizy",
+      "name": nameTextField.text,
       "email": emailTextField.text,
       "password": passwordTextField.text
     ]
     
     AF.request("http://localhost:3000/users/signup", method: .post, parameters: body, encoding: JSONEncoding.default, headers: nil).responseData { (response) in
+      
       switch response.result {
       case .success(let data):
-//        print("++++++++++++++++", data)
+        print("++++++++++++++++", data)
         let jsonData = JSON(data)
         let alertVC = UIAlertController(title: "회원가입 완료", message: jsonData["message"].string, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
