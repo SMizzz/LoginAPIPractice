@@ -305,10 +305,10 @@
             </objects>
             <point key="canvasLocation" x="2872" y="-13"/>
         </scene>
-        <!--View Controller-->
+        <!--Search Bar View Controller-->
         <scene sceneID="Sor-YL-cZE">
             <objects>
-                <viewController id="O7Q-g5-cG3" sceneMemberID="viewController">
+                <viewController id="O7Q-g5-cG3" customClass="SearchBarViewController" customModule="LoginAPIPractice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="phE-8v-1Ym">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -341,7 +341,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                                 </state>
                                 <connections>
-                                    <segue destination="eed-En-gQQ" kind="presentation" id="8ac-qd-hK4"/>
+                                    <action selector="profileBtnTap:" destination="O7Q-g5-cG3" eventType="touchUpInside" id="c5S-sO-QHe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -349,15 +349,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="gzn-WX-li1"/>
+                    <connections>
+                        <outlet property="searchBar" destination="APX-CM-1Xy" id="O1Z-wx-PUJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="21r-3Y-Gt7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4979.7101449275369" y="-151.33928571428569"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Profile View Controller-->
         <scene sceneID="u80-q6-x88">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="eed-En-gQQ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditProfileVC" modalPresentationStyle="fullScreen" id="eed-En-gQQ" customClass="EditProfileViewController" customModule="LoginAPIPractice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w7h-Py-dic">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -367,7 +370,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="프로필 편집" id="ucw-uG-Xix">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="cancel" id="Fjb-gB-96m"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="cancel" id="Fjb-gB-96m">
+                                            <connections>
+                                                <action selector="cancelBtnTap:" destination="eed-En-gQQ" id="JNt-6O-gX5"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="완료" id="yzL-Md-lfR"/>
                                     </navigationItem>
                                 </items>
@@ -408,10 +415,10 @@
             </objects>
             <point key="canvasLocation" x="5731.884057971015" y="-151.33928571428569"/>
         </scene>
-        <!--View Controller-->
+        <!--Movie List View Controller-->
         <scene sceneID="0T7-yP-pMU">
             <objects>
-                <viewController id="w3n-Ec-nav" sceneMemberID="viewController">
+                <viewController id="w3n-Ec-nav" customClass="MovieListViewController" customModule="LoginAPIPractice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iY2-cv-aM2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -521,10 +528,10 @@
             </objects>
             <point key="canvasLocation" x="6492.753623188406" y="-151.33928571428569"/>
         </scene>
-        <!--View Controller-->
+        <!--Compose View Controller-->
         <scene sceneID="c5o-ze-7z1">
             <objects>
-                <viewController id="BgV-SB-2sk" sceneMemberID="viewController">
+                <viewController id="BgV-SB-2sk" customClass="ComposeViewController" customModule="LoginAPIPractice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P65-a6-dcf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -567,7 +574,7 @@
         <!--My-->
         <scene sceneID="Nyp-dp-mwP">
             <objects>
-                <viewController id="a6x-2r-khd" sceneMemberID="viewController">
+                <viewController id="a6x-2r-khd" customClass="MyViewController" customModule="LoginAPIPractice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4TZ-eu-t7f">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

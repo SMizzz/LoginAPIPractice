@@ -7,6 +7,3 @@
 
 import Foundation
 
-struct TokenResponse: Codable {
-  var token: String
-}
