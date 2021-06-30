@@ -34,7 +34,6 @@ class ViewController: UIViewController {
       "password": passwordTextField.text
     ]
     
-    //
     let header: HTTPHeaders = [
       .authorization(
         username: emailTextField.text!,
@@ -42,39 +41,54 @@ class ViewController: UIViewController {
       .accept("application/json")
     ]
     
-    AF.request("http://localhost:3000/users/login", method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseData(completionHandler: { (response) in
-      switch response.result {
-      case .success(let data):
-        do {
-          print("response data \(data)")
+    AF.request(
+      "http://localhost:3000/users/login",
+      method: .post,
+      parameters: body,
+      encoding: JSONEncoding.default,
+      headers: nil).responseData { (response) in
+        switch response.result {
+        case .success(let data):
+          let jsonData = JSON(data)
           if response.response?.statusCode == 200 {
             print("성공")
-            let alertVC = UIAlertController(title: "🎉", message: "로그인 완료", preferredStyle: .alert)
-            alertVC.addAction(UIAlertAction(title: "OK", style: .default,handler: { (_) in
-              let wnd = UIApplication.shared.windows.filter{$0.isKeyWindow}.first
-              let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "MainVC") as! MainViewController
-              wnd?.rootViewController = mainVC
-            }))
+            print(jsonData)
+            let alertVC = UIAlertController(
+              title: "🎉",
+              message: "로그인 완료",
+              preferredStyle: .alert)
+            alertVC.addAction(
+              UIAlertAction(
+                title: "OK",
+                style: .default, handler: { (_) in
+                  let wnd = UIApplication.shared.windows.filter{$0.isKeyWindow}.first
+                  let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "MainVC") as! MainViewController
+                  wnd?.rootViewController = mainVC
+                }))
             self.present(alertVC, animated: true, completion: nil)
             return
           } else {
-            print("Please try again")
-            let alertVC = UIAlertController(title: "확인!", message: "아이디와 패스워드를 다시 작성해주세요.", preferredStyle: .alert)
-            alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            print("Please try again", jsonData)
+            print(jsonData["message"])
+            let alertVC = UIAlertController(
+              title: "확인!",
+              message: jsonData["message"].string,
+              preferredStyle: .alert)
+            alertVC.addAction(
+              UIAlertAction(
+                title: "OK",
+                style: .default,
+                handler: nil))
             self.present(alertVC, animated: true, completion: nil)
             return
           }
-        } catch let error {
+        case .failure(let error):
           print(error.localizedDescription)
-          print("Please try again")
           return
         }
-      case .failure(let error):
-        print(error)
-        return
       }
-    })
   }
+  
   
   @IBAction func signupBtnTap(_ sender: Any) {
     let mainSB = UIStoryboard(name: "Main", bundle: nil)

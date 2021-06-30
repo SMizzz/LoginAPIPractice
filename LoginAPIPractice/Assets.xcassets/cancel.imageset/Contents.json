@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "user (4).png",
+      "filename" : "Arrow - Left.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "user (5).png",
+      "filename" : "Arrow - Left-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "user (6).png",
+      "filename" : "Arrow - Left-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
