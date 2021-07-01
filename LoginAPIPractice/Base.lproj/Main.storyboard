@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yLA-a5-bPL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Oaj-Tw-9xE">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -276,7 +276,7 @@
         <!--Main View Controller-->
         <scene sceneID="50d-BN-pvh">
             <objects>
-                <viewController storyboardIdentifier="MainVC" id="XSY-03-ADy" customClass="MainViewController" customModule="LoginAPIPractice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XSY-03-ADy" customClass="MainViewController" customModule="LoginAPIPractice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G6N-ne-wHd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -397,14 +397,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal">
-                                    <imageReference key="image" image="person.fill" catalog="system" symbolScale="large"/>
+                                    <imageReference key="image" image="profile" symbolScale="large"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3G-St-DIw">
-                                <rect key="frame" x="213" y="215" width="41" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3G-St-DIw">
+                                <rect key="frame" x="235" y="220" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="pencil"/>
+                                <state key="normal" image="pencil"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Gan-Lv-rk5"/>
@@ -504,7 +504,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehk-zp-8HC">
                                                     <rect key="frame" x="376" y="7" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="pencil" image="pencil.circle.fill" catalog="system">
+                                                    <state key="normal" title="pencil" image="pencil">
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                                     </state>
                                                 </button>
@@ -709,9 +709,10 @@
         <!--Tab Bar Controller-->
         <scene sceneID="zfL-S2-WjT">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="yLA-a5-bPL" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainVC" automaticallyAdjustsScrollViewInsets="NO" id="yLA-a5-bPL" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3wj-Ki-gnF">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -741,8 +742,7 @@
         <image name="facebook-logo" width="2400" height="4622"/>
         <image name="kakao-logo" width="1954" height="1804"/>
         <image name="list.dash" catalog="system" width="128" height="85"/>
-        <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="pencil" width="240" height="240"/>
         <image name="profile" width="240" height="240"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -23,6 +23,7 @@
 		02CD400D268966E00058D839 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CD400C268966E00058D839 /* ForgotPasswordViewController.swift */; };
 		02CD4011268969DD0058D839 /* LineButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CD4010268969DD0058D839 /* LineButtonView.swift */; };
 		02CD401D268973AF0058D839 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CD401C268973AF0058D839 /* MainViewController.swift */; };
+		02DBE514268D748E0026FC55 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DBE513268D748E0026FC55 /* Utilities.swift */; };
 		9EBF7E8F15417FBDF7FDB8F9 /* Pods_LoginAPIPractice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A009D9B5BF38C5F9B120EEE /* Pods_LoginAPIPractice.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		02CD400C268966E00058D839 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		02CD4010268969DD0058D839 /* LineButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineButtonView.swift; sourceTree = "<group>"; };
 		02CD401C268973AF0058D839 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		02DBE513268D748E0026FC55 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		0A009D9B5BF38C5F9B120EEE /* Pods_LoginAPIPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoginAPIPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20DC0D961D51D2A528D862F1 /* Pods-LoginAPIPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginAPIPractice.debug.xcconfig"; path = "Target Support Files/Pods-LoginAPIPractice/Pods-LoginAPIPractice.debug.xcconfig"; sourceTree = "<group>"; };
 		E9F566908561950876C53225 /* Pods-LoginAPIPractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginAPIPractice.release.xcconfig"; path = "Target Support Files/Pods-LoginAPIPractice/Pods-LoginAPIPractice.release.xcconfig"; sourceTree = "<group>"; };
@@ -85,15 +87,16 @@
 			children = (
 				02CD3FF326895F430058D839 /* AppDelegate.swift */,
 				02CD3FF526895F430058D839 /* SceneDelegate.swift */,
+				02DBE513268D748E0026FC55 /* Utilities.swift */,
 				02876CA1268C0F71003E91A8 /* Model.swift */,
 				02CD3FF726895F430058D839 /* ViewController.swift */,
+				02CD4010268969DD0058D839 /* LineButtonView.swift */,
 				02CD40082689642B0058D839 /* SignupViewController.swift */,
 				02CD400C268966E00058D839 /* ForgotPasswordViewController.swift */,
 				02CD3FF926895F430058D839 /* Main.storyboard */,
 				02CD3FFC26895F450058D839 /* Assets.xcassets */,
 				02CD3FFE26895F450058D839 /* LaunchScreen.storyboard */,
 				02CD400126895F450058D839 /* Info.plist */,
-				02CD4010268969DD0058D839 /* LineButtonView.swift */,
 				02CD401C268973AF0058D839 /* MainViewController.swift */,
 				02876CA9268CB7B0003E91A8 /* SearchBarViewController.swift */,
 				02876CAC268CB7BF003E91A8 /* EditProfileViewController.swift */,
@@ -237,6 +240,7 @@
 			files = (
 				02CD401D268973AF0058D839 /* MainViewController.swift in Sources */,
 				02CD3FF826895F430058D839 /* ViewController.swift in Sources */,
+				02DBE514268D748E0026FC55 /* Utilities.swift in Sources */,
 				02CD400D268966E00058D839 /* ForgotPasswordViewController.swift in Sources */,
 				02CD3FF426895F430058D839 /* AppDelegate.swift in Sources */,
 				02CD40092689642B0058D839 /* SignupViewController.swift in Sources */,

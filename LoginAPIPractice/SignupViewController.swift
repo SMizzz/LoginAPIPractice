@@ -23,6 +23,7 @@ class SignupViewController: UIViewController {
       nameTextField.autocorrectionType = .no
       emailTextField.autocorrectionType = .no
       passwordTextField.autocorrectionType = .no
+      setupTapGRForKeyboardDismissal()
     }
   
   @IBAction func signupBtnTap(_ sender: Any) {
