@@ -344,6 +344,14 @@
                                     <action selector="profileBtnTap:" destination="O7Q-g5-cG3" eventType="touchUpInside" id="c5S-sO-QHe"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wPW-KR-wEh">
+                                <rect key="frame" x="107" y="184" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="setting"/>
+                                <connections>
+                                    <action selector="settingBtnTap:" destination="O7Q-g5-cG3" eventType="touchUpInside" id="ied-Zk-9Wp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dOh-Bg-u3e"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -526,7 +534,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dcb-va-CPh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6492.753623188406" y="-151.33928571428569"/>
+            <point key="canvasLocation" x="7212" y="-151"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="c5o-ze-7z1">
@@ -569,7 +577,65 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hwR-EH-R7W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5693" y="544"/>
+            <point key="canvasLocation" x="5732" y="544"/>
+        </scene>
+        <!--Logout View Controller-->
+        <scene sceneID="fLE-HZ-Kbh">
+            <objects>
+                <viewController storyboardIdentifier="LogoutVC" id="ZKc-fi-gKD" customClass="LogoutViewController" customModule="LoginAPIPractice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sG0-i5-Pvd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Are you sure want to log out?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUI-k6-tZs">
+                                <rect key="frame" x="70" y="223" width="275" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wLK-y3-Sbq" customClass="LineButton" customModule="LoginAPIPractice" customModuleProvider="target">
+                                <rect key="frame" x="70" y="504" width="275" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.84161802494499771" green="0.70636411314728698" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
+                                <state key="normal" title="LOG OUT">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="logoutBtnTap:" destination="ZKc-fi-gKD" eventType="touchUpInside" id="ijp-GY-UF3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="klj-0Y-miX" customClass="LineButton" customModule="LoginAPIPractice" customModuleProvider="target">
+                                <rect key="frame" x="70" y="576" width="275" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.61783591608628319" blue="0.68307685618128966" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
+                                <state key="normal" title="CANCEL">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cancelBtnTap:" destination="ZKc-fi-gKD" eventType="touchUpInside" id="Bek-hB-EAS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MrF-up-4VG"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KRh-yp-sVh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6463.7681159420299" y="-151.33928571428569"/>
         </scene>
         <!--My-->
         <scene sceneID="Nyp-dp-mwP">
@@ -730,8 +796,14 @@
         <designable name="i7J-A7-G9F">
             <size key="intrinsicContentSize" width="47" height="30"/>
         </designable>
+        <designable name="klj-0Y-miX">
+            <size key="intrinsicContentSize" width="62" height="33"/>
+        </designable>
         <designable name="voB-4g-OG4">
             <size key="intrinsicContentSize" width="54" height="30"/>
+        </designable>
+        <designable name="wLK-y3-Sbq">
+            <size key="intrinsicContentSize" width="71" height="33"/>
         </designable>
     </designables>
     <resources>
@@ -744,6 +816,7 @@
         <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="pencil" width="240" height="240"/>
         <image name="profile" width="240" height="240"/>
+        <image name="setting" width="120" height="120"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

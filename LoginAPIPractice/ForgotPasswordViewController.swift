@@ -35,23 +35,50 @@ class ForgotPasswordViewController: UIViewController {
     if emailTextField.text == "" {
       print("빈칸 있음")
     }
-    
+//
+//    let url = URL(string: "http://localhost:3000/api-docs/Users/forgotPassword")
+//
+//    var request = URLRequest(url: url!)
+
+//    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//
     let body: Parameters = ["email": emailTextField.text!]
+//    let header: HTTPHeaders = ["Content-Type": "application/json"]
     
-    AF.request("http://localhost:3000/api-docs/Users/forgotPassword", method: .put, parameters: body, encoding: JSONEncoding.default, headers: nil).responseData { (response) in
-      switch response.result {
-      case .success(let data):
-        let jsonData = JSON(data)
-        let alertVC = UIAlertController(title: "확인!", message: jsonData["message"].string, preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alertVC, animated: true, completion: nil)
-        return
-        
-      case .failure(let error):
-        print(error.localizedDescription)
-        return
+    AF.request("http://localhost:3000/api-docs/Users/forgotPassword", method: .put, parameters: body, encoding: JSONEncoding.default, headers: nil)
+      .responseData { (response) in
+        switch response.result {
+        case .success(let data):
+          print(body)
+          print("========",JSON(data))
+          if response.response?.statusCode == 200 {
+            print("status code 200")
+            print("data is \(JSON(data))")
+            return
+          } else {
+            print("이메일이 틀렸습니다.")
+          }
+          
+        case .failure(let error):
+          print(error.localizedDescription)
+        }
       }
-    }
+  }
+  
+//    AF.request("http://localhost:3000/api-docs/Users/forgotPassword", method: .put, parameters: body, encoding: JSONEncoding.default, headers: header).responseData { (response) in
+//      switch response.result {
+//      case .success(let data):
+//        let jsonData = JSON(data)
+//        let alertVC = UIAlertController(title: "확인!", message: jsonData["message"].string, preferredStyle: .alert)
+//        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//        self.present(alertVC, animated: true, completion: nil)
+//        return
+//
+//      case .failure(let error):
+//        print(error.localizedDescription)
+//        return
+//      }
+//    }
   
 //    AF.request(
 //      "http://localhost:3000/api-docs/Users/forgotPassword",
@@ -68,6 +95,4 @@ class ForgotPasswordViewController: UIViewController {
 //        print("실패")
 //      }
 //      })
-}
-
 }
