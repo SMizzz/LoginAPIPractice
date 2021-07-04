@@ -31,16 +31,9 @@ class ViewController: UIViewController {
     }
     
     let body: Parameters = [
-      "email": emailTextField.text,
-      "password": passwordTextField.text
+      "email": emailTextField.text!,
+      "password": passwordTextField.text!
     ] 
-    
-    let header: HTTPHeaders = [
-      .authorization(
-        username: emailTextField.text!,
-        password: passwordTextField.text!),
-      .accept("application/json")
-    ]
     
     AF.request(
       "http://localhost:3000/users/login",
@@ -51,41 +44,35 @@ class ViewController: UIViewController {
         switch response.result {
         case .success(let data):
           let jsonData = JSON(data)
-          do {
-            if response.response?.statusCode == 200 {
-              print("성공")
-              print(jsonData)
-              let alertVC = UIAlertController(
-                title: "🎉",
-                message: "로그인 완료",
-                preferredStyle: .alert)
-              alertVC.addAction(
-                UIAlertAction(
-                  title: "OK",
-                  style: .default, handler: { (_) in
-                    let wnd = UIApplication.shared.windows.filter{$0.isKeyWindow}.first
-                    let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "MainVC")
-                    wnd?.rootViewController = mainVC
-                  }))
-              self.present(alertVC, animated: true, completion: nil)
-              return
-            } else {
-              print("Please try again", jsonData)
-              print(jsonData["message"])
-              let alertVC = UIAlertController(
-                title: "확인!",
-                message: jsonData["message"].string,
-                preferredStyle: .alert)
-              alertVC.addAction(
-                UIAlertAction(
-                  title: "OK",
-                  style: .default,
-                  handler: nil))
-              self.present(alertVC, animated: true, completion: nil)
-              return
-            }
-          } catch let error{
-            print("error \(error)")
+          print("++++++++++", jsonData)
+          if response.response?.statusCode == 200 {
+            print("성공")
+            let alertVC = UIAlertController(
+              title: "🎉",
+              message: "로그인 완료",
+              preferredStyle: .alert)
+            alertVC.addAction(
+              UIAlertAction(
+                title: "OK",
+                style: .default, handler: { (_) in
+                  let wnd = UIApplication.shared.windows.filter{$0.isKeyWindow}.first
+                  let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "MainVC")
+                  wnd?.rootViewController = mainVC
+                }))
+            self.present(alertVC, animated: true, completion: nil)
+            return
+          } else {
+            let alertVC = UIAlertController(
+              title: "경고!",
+              message: jsonData["message"].string,
+              preferredStyle: .alert)
+            alertVC.addAction(
+              UIAlertAction(
+                title: "OK",
+                style: .default,
+                handler: nil))
+            self.present(alertVC, animated: true, completion: nil)
+            return
           }
         case .failure(let error):
           print(error.localizedDescription)
