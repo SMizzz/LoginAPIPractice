@@ -21,6 +21,7 @@ class MyViewController: UIViewController {
   private func configureCollectionView() {
     reviewCollectionView.delegate = self
     reviewCollectionView.dataSource = self
+    reviewCollectionView.register(ReviewCell.self, forCellWithReuseIdentifier: "cell")
   }
   
   
@@ -45,8 +46,10 @@ extension MyViewController:
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-  
+    guard let cell = reviewCollectionView.dequeueReusableCell(withReuseIdentifier: "ReviewCell", for: indexPath) as? ReviewCell else { return UICollectionViewCell()}
+    
+    cell.titleLabel.text = "해리포터와 불사조 기사단"
+    cell.imageBtn.setImage(UIImage(named: "harrypotter"), for: .normal)
+    return cell
   }
-  
-  
 }

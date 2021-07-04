@@ -8,25 +8,18 @@
 import UIKit
 
 class SearchBarViewController: UIViewController {
-
-  @IBOutlet weak var searchBar: UISearchBar!
   
+  @IBOutlet weak var profileImageBtn: UIButton!
+  @IBOutlet weak var searchBar: UISearchBar!
+ 
   override func viewDidLoad() {
         super.viewDidLoad()
     setupTapGRForKeyboardDismissal()
+    profileImageBtn.layer.cornerRadius = profileImageBtn.frame.height / 2
+    profileImageBtn.contentMode = .scaleAspectFill
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+ 
   @IBAction func profileBtnTap(_ sender: Any) {
     guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "EditProfileVC") else { return }
     vc.modalPresentationStyle = .fullScreen

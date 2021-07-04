@@ -358,6 +358,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="gzn-WX-li1"/>
                     <connections>
+                        <outlet property="profileImageBtn" destination="k9M-pV-wKe" id="ah7-bH-XKM"/>
                         <outlet property="searchBar" destination="APX-CM-1Xy" id="O1Z-wx-PUJ"/>
                     </connections>
                 </viewController>
@@ -383,7 +384,11 @@
                                                 <action selector="cancelBtnTap:" destination="eed-En-gQQ" id="JNt-6O-gX5"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="완료" id="yzL-Md-lfR"/>
+                                        <barButtonItem key="rightBarButtonItem" title="완료" id="yzL-Md-lfR">
+                                            <connections>
+                                                <action selector="saveBtnTap:" destination="eed-En-gQQ" id="VwJ-MA-TMr"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -394,30 +399,32 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="345-rW-9KG">
+                                <rect key="frame" x="143" y="142" width="129" height="123"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="닉네임" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ii7-th-o8k">
                                 <rect key="frame" x="99" y="328" width="217" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOC-Yk-417">
-                                <rect key="frame" x="159" y="161" width="97" height="94"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal">
-                                    <imageReference key="image" image="profile" symbolScale="large"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3G-St-DIw">
-                                <rect key="frame" x="235" y="220" width="35" height="35"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3G-St-DIw">
+                                <rect key="frame" x="236" y="225" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="pencil"/>
+                                <connections>
+                                    <action selector="pencilBtnTap:" destination="eed-En-gQQ" eventType="touchUpInside" id="nC1-vZ-WgM"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Gan-Lv-rk5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="ii7-th-o8k" id="lzh-MX-OES"/>
+                        <outlet property="profileImageView" destination="345-rW-9KG" id="ojl-Gs-mbA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="szU-H2-7yQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -649,34 +656,42 @@
                                 <rect key="frame" x="0.0" y="158" width="414" height="580"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Sez-Te-qgC">
-                                    <size key="itemSize" width="346" height="579"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Sez-Te-qgC">
+                                    <size key="itemSize" width="350" height="580"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Km3-fU-T7X">
-                                        <rect key="frame" x="34" y="0.0" width="346" height="579"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReviewCell" id="Km3-fU-T7X" customClass="ReviewCell" customModule="LoginAPIPractice" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="580"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="SI6-6g-TYB">
-                                            <rect key="frame" x="0.0" y="0.0" width="346" height="579"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="580"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wBO-Vy-H9V">
+                                                    <rect key="frame" x="0.0" y="0.0" width="346" height="515"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="ImageBtnTap:" destination="qP6-YS-YDd" eventType="touchUpInside" id="Lbp-ln-JsT"/>
+                                                        <action selector="imageBtnTap:" destination="Km3-fU-T7X" eventType="touchUpInside" id="614-bc-3bl"/>
+                                                    </connections>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="해리포터 죽음의 성물 2탄" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMs-4T-QZq">
-                                                    <rect key="frame" x="8" y="507" width="243" height="64"/>
+                                                    <rect key="frame" x="8" y="508" width="243" height="64"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wBO-Vy-H9V">
-                                                    <rect key="frame" x="0.0" y="0.0" width="346" height="579"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </button>
                                             </subviews>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="346" height="579"/>
+                                        <size key="customSize" width="350" height="580"/>
+                                        <connections>
+                                            <outlet property="imageBtn" destination="wBO-Vy-H9V" id="LZ2-HP-193"/>
+                                            <outlet property="titleLabel" destination="fMs-4T-QZq" id="s7u-Zx-awZ"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -699,8 +714,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lH5-aK-IzQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="qP6-YS-YDd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4958" y="545"/>
+            <point key="canvasLocation" x="4957.971014492754" y="544.41964285714278"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="IQd-dV-P8C">

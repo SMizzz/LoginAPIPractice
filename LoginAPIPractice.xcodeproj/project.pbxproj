@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0283CC002690A22A00744F7F /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0283CBFF2690A22A00744F7F /* LogoutViewController.swift */; };
+		0283CC0326920F8300744F7F /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0283CC0226920F8300744F7F /* ReviewCell.swift */; };
 		02876CA2268C0F71003E91A8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02876CA1268C0F71003E91A8 /* Model.swift */; };
 		02876CAA268CB7B0003E91A8 /* SearchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02876CA9268CB7B0003E91A8 /* SearchBarViewController.swift */; };
 		02876CAD268CB7BF003E91A8 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02876CAC268CB7BF003E91A8 /* EditProfileViewController.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		0283CBFF2690A22A00744F7F /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
+		0283CC0226920F8300744F7F /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		02876CA1268C0F71003E91A8 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		02876CA9268CB7B0003E91A8 /* SearchBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarViewController.swift; sourceTree = "<group>"; };
 		02876CAC268CB7BF003E91A8 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				02876CA9268CB7B0003E91A8 /* SearchBarViewController.swift */,
 				02876CAC268CB7BF003E91A8 /* EditProfileViewController.swift */,
 				02876CAF268CB7D4003E91A8 /* MovieListViewController.swift */,
+				0283CC0226920F8300744F7F /* ReviewCell.swift */,
 				02876CB2268CB7E1003E91A8 /* MyViewController.swift */,
 				02876CB5268CB7F5003E91A8 /* ComposeViewController.swift */,
 				0283CBFF2690A22A00744F7F /* LogoutViewController.swift */,
@@ -254,6 +257,7 @@
 				02CD3FF626895F430058D839 /* SceneDelegate.swift in Sources */,
 				02876CAD268CB7BF003E91A8 /* EditProfileViewController.swift in Sources */,
 				02876CB3268CB7E1003E91A8 /* MyViewController.swift in Sources */,
+				0283CC0326920F8300744F7F /* ReviewCell.swift in Sources */,
 				0283CC002690A22A00744F7F /* LogoutViewController.swift in Sources */,
 				02876CA2268C0F71003E91A8 /* Model.swift in Sources */,
 			);

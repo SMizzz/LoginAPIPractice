@@ -8,25 +8,69 @@
 import UIKit
 
 class EditProfileViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      setupTapGRForKeyboardDismissal()
-        // Do any additional setup after loading the view.
+  
+  @IBOutlet weak var profileImageView: UIImageView!
+  @IBOutlet weak var nameTextField: UITextField!
+  
+  let picker = UIImagePickerController()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    setupTapGRForKeyboardDismissal()
+    profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
+    profileImageView.contentMode = .scaleAspectFill
+    picker.delegate = self
+    // Do any additional setup after loading the view.
+  }
+  
+  @IBAction func pencilBtnTap(_ sender: Any) {
+    let alertVC = UIAlertController(title: "사진 선택", message: "pick!", preferredStyle: .actionSheet)
+    let library =  UIAlertAction(title: "사진앨범", style: .default) { (action) in self.openLibrary()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    let camera =  UIAlertAction(title: "카메라", style: .default) { (action) in
+      self.openCamera()
     }
-    */
+    
+    let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+    
+    alertVC.addAction(library)
+    alertVC.addAction(camera)
+    alertVC.addAction(cancel)
+    self.present(alertVC, animated: true, completion: nil)
+  }
+  
   @IBAction func cancelBtnTap(_ sender: Any) {
     self.dismiss(animated: true, completion: nil)
   }
   
+  @IBAction func saveBtnTap(_ sender: Any) {
+    print("완료")
+  }
+  
+  func openLibrary() {
+    picker.sourceType = .photoLibrary
+    self.present(picker, animated: false, completion: nil)
+  }
+
+  func openCamera() {
+    if(UIImagePickerController.isSourceTypeAvailable(.camera)) {
+      picker.sourceType = .camera
+      self.present(picker, animated: false, completion: nil)
+    } else {
+      print("Camera not available")
+    }
+  }
+}
+
+extension EditProfileViewController :
+  UIImagePickerControllerDelegate,
+  UINavigationControllerDelegate {
+  
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+      profileImageView.image = image
+    }
+    self.dismiss(animated: true, completion: nil)
+  }
 }
