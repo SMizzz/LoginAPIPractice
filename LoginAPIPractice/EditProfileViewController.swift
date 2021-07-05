@@ -6,11 +6,16 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import Kingfisher
+
 
 class EditProfileViewController: UIViewController {
   
   @IBOutlet weak var profileImageView: UIImageView!
   @IBOutlet weak var nameTextField: UITextField!
+  @IBOutlet weak var emailTextField: UITextField!
   
   let picker = UIImagePickerController()
   
@@ -21,6 +26,34 @@ class EditProfileViewController: UIViewController {
     profileImageView.contentMode = .scaleAspectFill
     picker.delegate = self
     // Do any additional setup after loading the view.
+    
+    getData()
+  }
+  
+  private func getData() {
+    let token = UserDefaults.standard.string(forKey: "token")!
+    print("=================",token)
+    
+    let headers: HTTPHeaders = [
+      "Authorization": "bearer \(token)",
+      "Accept": "application/json"
+    ]
+    
+    AF.request("http://localhost:3000/users/secret", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { [self] (response) in
+      print(response.result)
+      switch response.result {
+      case .success(let data):
+        let jsonData = JSON(data)
+        profileImageView.kf.setImage(with: URL(string: jsonData["avatar"].string!))
+        nameTextField.text = jsonData["name"].string
+        emailTextField.text = jsonData["email"].string
+        
+        return
+      case .failure(let error):
+        print(error.localizedDescription)
+        return
+      }
+    }
   }
   
   @IBAction func pencilBtnTap(_ sender: Any) {

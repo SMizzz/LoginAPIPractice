@@ -18,6 +18,7 @@ class SearchBarViewController: UIViewController {
     profileImageBtn.layer.cornerRadius = profileImageBtn.frame.height / 2
     profileImageBtn.contentMode = .scaleAspectFill
         // Do any additional setup after loading the view.
+   
     }
  
   @IBAction func profileBtnTap(_ sender: Any) {

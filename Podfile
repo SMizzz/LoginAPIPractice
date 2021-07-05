@@ -6,6 +6,7 @@ target 'LoginAPIPractice' do
   use_frameworks!
 pod "Alamofire"
 pod "SwiftyJSON"
+pod "Kingfisher"
   # Pods for LoginAPIPractice
 
 end

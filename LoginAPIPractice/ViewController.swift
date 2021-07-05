@@ -44,9 +44,13 @@ class ViewController: UIViewController {
         switch response.result {
         case .success(let data):
           let jsonData = JSON(data)
-          print("++++++++++", jsonData)
+//          print("++++++++++", jsonData)
           if response.response?.statusCode == 200 {
-            print("성공")
+//            print("성공")
+            //1. token 저장
+            let token = jsonData["token"].string!
+            UserDefaults.standard.set(token, forKey: "token")
+            
             let alertVC = UIAlertController(
               title: "🎉",
               message: "로그인 완료",
@@ -62,6 +66,9 @@ class ViewController: UIViewController {
             self.present(alertVC, animated: true, completion: nil)
             return
           } else {
+//            print("------------",data)
+            let jsonData = JSON(data)
+            print("============", jsonData)
             let alertVC = UIAlertController(
               title: "경고!",
               message: jsonData["message"].string,
@@ -75,7 +82,7 @@ class ViewController: UIViewController {
             return
           }
         case .failure(let error):
-          print(error.localizedDescription)
+          print("*****************", error)
           return
         }
       }
