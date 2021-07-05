@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Alamofire
+import Moya
 import SwiftyJSON
 import Kingfisher
 
@@ -16,7 +16,8 @@ class EditProfileViewController: UIViewController {
   @IBOutlet weak var profileImageView: UIImageView!
   @IBOutlet weak var nameTextField: UITextField!
   @IBOutlet weak var emailTextField: UITextField!
-  
+//  var user : User() = {}
+//  var user = User
   let picker = UIImagePickerController()
   
   override func viewDidLoad() {
@@ -33,7 +34,14 @@ class EditProfileViewController: UIViewController {
   private func getData() {
     let token = UserDefaults.standard.string(forKey: "token")!
     print("=================",token)
+    AuthNetworkManager.getCurrent(token: token) { [self] (user) in
+      print(user)
+      profileImageView.kf.setImage(with: URL(string: user.avatar))
+      nameTextField.text = user.name
+      emailTextField.text = user.email
+    }
     
+    /*
     let headers: HTTPHeaders = [
       "Authorization": "bearer \(token)",
       "Accept": "application/json"
@@ -54,6 +62,7 @@ class EditProfileViewController: UIViewController {
         return
       }
     }
+ */
   }
   
   @IBAction func pencilBtnTap(_ sender: Any) {

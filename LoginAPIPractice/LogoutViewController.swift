@@ -19,14 +19,15 @@ class LogoutViewController: UIViewController {
     let alertVC = UIAlertController(title: "로그아웃", message: "정말 로그아웃하시겠습니까", preferredStyle: .actionSheet)
     
     alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+      // token 삭제
+      UserDefaults.standard.removeObject(forKey: "token")
       let wnd = UIApplication.shared.windows.filter{$0.isKeyWindow}.first
       let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC")
       wnd?.rootViewController = loginVC
-      
     }))
     alertVC.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
     
-    present(alertVC, animated: true, completion: nil)
+    self.present(alertVC, animated: true, completion: nil)
     
   }
   

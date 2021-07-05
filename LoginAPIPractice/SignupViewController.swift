@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Alamofire
 import SwiftyJSON
 
 class SignupViewController: UIViewController {
@@ -31,6 +30,39 @@ class SignupViewController: UIViewController {
       print("빈칸 있음")
     }
     
+    AuthNetworkManager.getSignup(name: nameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!) { (msg) in
+      print(msg)
+      ModalVC.AlertVC(title: "회원가입 완료", msg: msg, action: { (_) in
+        self.navigationController?.popViewController(animated: true)
+      }, view: self)
+    }
+    
+    /*
+    provider.request(.signup(name: nameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!)) { (result) in
+      switch result {
+      case .success(let res):
+//        print(res.data)
+        let jsonData = JSON(res.data)
+        print(jsonData)
+        
+        ModalVC.AlertVC(title: "회원가입 완료", msg: jsonData["message"].string!, action: { (_) in
+          self.navigationController?.popViewController(animated: true)
+        }, view: self)
+//        do {
+//
+//        } catch let err {
+//
+//        }
+        return
+      case .failure(let err):
+        print(err.localizedDescription)
+        return
+      }
+    }
+    */
+  
+    
+    /*
     let body: Parameters = [
       "name": nameTextField.text!,
       "email": emailTextField.text!,
@@ -74,16 +106,8 @@ class SignupViewController: UIViewController {
         return
       }
     }
+ */
   }
-  
-  /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

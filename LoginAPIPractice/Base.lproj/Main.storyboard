@@ -105,6 +105,9 @@
                                         <rect key="frame" x="28" y="12" width="25" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button" image="facebook-logo"/>
+                                        <connections>
+                                            <action selector="facebookBtnTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jcs-F2-6LD"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>

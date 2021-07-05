@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0269B8A826929FFE00190D4A /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269B8A726929FFE00190D4A /* AuthAPI.swift */; };
+		0269B8AC2692A25C00190D4A /* AuthNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269B8AB2692A25C00190D4A /* AuthNetworkManager.swift */; };
+		0269B8B42692A6E100190D4A /* ModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269B8B32692A6E100190D4A /* ModalVC.swift */; };
 		0283CC002690A22A00744F7F /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0283CBFF2690A22A00744F7F /* LogoutViewController.swift */; };
 		0283CC0326920F8300744F7F /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0283CC0226920F8300744F7F /* ReviewCell.swift */; };
 		02876CA2268C0F71003E91A8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02876CA1268C0F71003E91A8 /* Model.swift */; };
@@ -30,6 +33,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0269B8A726929FFE00190D4A /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		0269B8AB2692A25C00190D4A /* AuthNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetworkManager.swift; sourceTree = "<group>"; };
+		0269B8B32692A6E100190D4A /* ModalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalVC.swift; sourceTree = "<group>"; };
 		0283CBFF2690A22A00744F7F /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
 		0283CC0226920F8300744F7F /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		02876CA1268C0F71003E91A8 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -92,6 +98,9 @@
 				02CD3FF326895F430058D839 /* AppDelegate.swift */,
 				02CD3FF526895F430058D839 /* SceneDelegate.swift */,
 				02DBE513268D748E0026FC55 /* Utilities.swift */,
+				0269B8A726929FFE00190D4A /* AuthAPI.swift */,
+				0269B8B32692A6E100190D4A /* ModalVC.swift */,
+				0269B8AB2692A25C00190D4A /* AuthNetworkManager.swift */,
 				02876CA1268C0F71003E91A8 /* Model.swift */,
 				02CD3FF726895F430058D839 /* ViewController.swift */,
 				02CD4010268969DD0058D839 /* LineButtonView.swift */,
@@ -244,9 +253,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0269B8B42692A6E100190D4A /* ModalVC.swift in Sources */,
+				0269B8AC2692A25C00190D4A /* AuthNetworkManager.swift in Sources */,
 				02CD401D268973AF0058D839 /* MainViewController.swift in Sources */,
 				02CD3FF826895F430058D839 /* ViewController.swift in Sources */,
 				02DBE514268D748E0026FC55 /* Utilities.swift in Sources */,
+				0269B8A826929FFE00190D4A /* AuthAPI.swift in Sources */,
 				02CD400D268966E00058D839 /* ForgotPasswordViewController.swift in Sources */,
 				02CD3FF426895F430058D839 /* AppDelegate.swift in Sources */,
 				02CD40092689642B0058D839 /* SignupViewController.swift in Sources */,

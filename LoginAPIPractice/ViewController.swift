@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import FBSDKLoginKit
 
 class ViewController: UIViewController {
   
@@ -23,6 +24,7 @@ class ViewController: UIViewController {
     emailTextField.autocorrectionType = .no
     passwordTextField.autocorrectionType = .no
     setupTapGRForKeyboardDismissal()
+    print(UserDefaults.standard.string(forKey: "token"))
   }
   
   @IBAction func signinBtnTap(_ sender: Any) {
@@ -30,6 +32,17 @@ class ViewController: UIViewController {
       print("빈칸 있음")
     }
     
+    AuthNetworkManager.getLogin(email: emailTextField.text!, password: passwordTextField.text!) { (token) in
+      print(token)
+      UserDefaults.standard.setValue(token, forKey: "token")
+      ModalVC.AlertVC(title: "로그인", msg: "완료", action: { (_) in
+        let wnd = UIApplication.shared.windows.filter{$0.isKeyWindow}.first
+        let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "MainVC")
+        wnd?.rootViewController = mainVC
+      }, view: self)
+    }
+    
+    /*
     let body: Parameters = [
       "email": emailTextField.text!,
       "password": passwordTextField.text!
@@ -86,6 +99,7 @@ class ViewController: UIViewController {
           return
         }
       }
+ */
   }
   
   
@@ -102,5 +116,19 @@ class ViewController: UIViewController {
     let forgotPwVC = mainSB.instantiateViewController(withIdentifier: "forgotPasswordVC")
     navigationController?.pushViewController(forgotPwVC, animated: true)
   }
+  
+  @IBAction func facebookBtnTap(_ sender: Any) {
+    print("facebook button Tap")
+    let fbLoginManager = LoginManager()
+    fbLoginManager.logIn(permissions: ["public_profile", "email"], from: self) { (result, error) in
+      if error != nil {
+        print(error?.localizedDescription)
+        return
+      }
+      print((AccessToken.current?.tokenString)!)
+//      print(result?.authenticationToken)
+    }
+  }
+  
 }
 
