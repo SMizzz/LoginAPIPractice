@@ -8,7 +8,9 @@ pod "Moya"
 pod "SwiftyJSON"
 pod "Kingfisher"
 pod 'FBSDKLoginKit'
-
+pod 'Firebase/Analytics'
+pod 'Firebase/Auth'
+pod 'GoogleSignIn'
   # Pods for LoginAPIPractice
 
 end

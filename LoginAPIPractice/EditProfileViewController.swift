@@ -103,6 +103,9 @@ class EditProfileViewController: UIViewController {
       print("Camera not available")
     }
   }
+  @IBAction func saveBtn(_ sender: Any) {
+    self.dismiss(animated: true, completion: nil)
+  }
 }
 
 extension EditProfileViewController :

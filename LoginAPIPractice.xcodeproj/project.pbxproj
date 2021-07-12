@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		022DD2E7269BCEB20046F45E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 022DD2E6269BCEB20046F45E /* GoogleService-Info.plist */; };
 		0269B8A826929FFE00190D4A /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269B8A726929FFE00190D4A /* AuthAPI.swift */; };
 		0269B8AC2692A25C00190D4A /* AuthNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269B8AB2692A25C00190D4A /* AuthNetworkManager.swift */; };
 		0269B8B42692A6E100190D4A /* ModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269B8B32692A6E100190D4A /* ModalVC.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		022DD2E6269BCEB20046F45E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0269B8A726929FFE00190D4A /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		0269B8AB2692A25C00190D4A /* AuthNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetworkManager.swift; sourceTree = "<group>"; };
 		0269B8B32692A6E100190D4A /* ModalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalVC.swift; sourceTree = "<group>"; };
@@ -99,8 +101,8 @@
 				02CD3FF526895F430058D839 /* SceneDelegate.swift */,
 				02DBE513268D748E0026FC55 /* Utilities.swift */,
 				0269B8A726929FFE00190D4A /* AuthAPI.swift */,
-				0269B8B32692A6E100190D4A /* ModalVC.swift */,
 				0269B8AB2692A25C00190D4A /* AuthNetworkManager.swift */,
+				0269B8B32692A6E100190D4A /* ModalVC.swift */,
 				02876CA1268C0F71003E91A8 /* Model.swift */,
 				02CD3FF726895F430058D839 /* ViewController.swift */,
 				02CD4010268969DD0058D839 /* LineButtonView.swift */,
@@ -110,6 +112,7 @@
 				02CD3FFC26895F450058D839 /* Assets.xcassets */,
 				02CD3FFE26895F450058D839 /* LaunchScreen.storyboard */,
 				02CD400126895F450058D839 /* Info.plist */,
+				022DD2E6269BCEB20046F45E /* GoogleService-Info.plist */,
 				02CD401C268973AF0058D839 /* MainViewController.swift */,
 				02876CA9268CB7B0003E91A8 /* SearchBarViewController.swift */,
 				02876CAC268CB7BF003E91A8 /* EditProfileViewController.swift */,
@@ -151,6 +154,7 @@
 				02CD3FED26895F430058D839 /* Frameworks */,
 				02CD3FEE26895F430058D839 /* Resources */,
 				BA2970B3D8DE1DCD94AB98FD /* [CP] Embed Pods Frameworks */,
+				67B3762E9A33BC69A941DEEC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02CD400026895F450058D839 /* LaunchScreen.storyboard in Resources */,
+				022DD2E7269BCEB20046F45E /* GoogleService-Info.plist in Resources */,
 				02CD3FFD26895F450058D839 /* Assets.xcassets in Resources */,
 				02CD3FFB26895F430058D839 /* Main.storyboard in Resources */,
 			);
@@ -207,6 +212,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		67B3762E9A33BC69A941DEEC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LoginAPIPractice/Pods-LoginAPIPractice-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LoginAPIPractice/Pods-LoginAPIPractice-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LoginAPIPractice/Pods-LoginAPIPractice-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7AFA82AA7957108036284EE8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

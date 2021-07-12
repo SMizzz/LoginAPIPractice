@@ -23,16 +23,24 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb882922752432632</string>
+				<string>fb502225977718400</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.499857634165-1ie1ud19ae3rmal46j2c8bd5rcja3per</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>FacebookAppID</key>
-	<string>882922752432632</string>
+	<string>502225977718400</string>
 	<key>FacebookClientToken</key>
-	<string>6c92dad592ec8566b97c268efc803651</string>
+	<string>381a44f585f94f8a670cd1010ea39225</string>
 	<key>FacebookDisplayName</key>
 	<string>MovieMemo</string>
 	<key>LSApplicationQueriesSchemes</key>

@@ -66,6 +66,9 @@
                                         <rect key="frame" x="22" y="12" width="36" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button" image="apple-logo"/>
+                                        <connections>
+                                            <action selector="googleBtnTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AjN-oP-4C7"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -389,7 +392,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="완료" id="yzL-Md-lfR">
                                             <connections>
-                                                <action selector="saveBtnTap:" destination="eed-En-gQQ" id="VwJ-MA-TMr"/>
+                                                <action selector="saveBtn:" destination="eed-En-gQQ" id="S9Q-EW-O8M"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>

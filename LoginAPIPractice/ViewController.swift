@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import FBSDKLoginKit
+import GoogleSignIn
 
 class ViewController: UIViewController {
   
@@ -25,6 +26,8 @@ class ViewController: UIViewController {
     passwordTextField.autocorrectionType = .no
     setupTapGRForKeyboardDismissal()
     print(UserDefaults.standard.string(forKey: "token"))
+    GIDSignIn.sharedInstance()?.presentingViewController = self
+    GIDSignIn.sharedInstance()?.delegate = self
   }
   
   @IBAction func signinBtnTap(_ sender: Any) {
@@ -117,6 +120,10 @@ class ViewController: UIViewController {
     navigationController?.pushViewController(forgotPwVC, animated: true)
   }
   
+  @IBAction func googleBtnTap(_ sender: Any) {
+    GIDSignIn.sharedInstance()?.signIn()
+  }
+  
   @IBAction func facebookBtnTap(_ sender: Any) {
     print("facebook button Tap")
     let fbLoginManager = LoginManager()
@@ -125,10 +132,29 @@ class ViewController: UIViewController {
         print(error?.localizedDescription)
         return
       }
-      print((AccessToken.current?.tokenString)!)
+      print("facebook", AccessToken.current?.userID)
+//      print((AccessToken.current?.tokenString)!)
 //      print(result?.authenticationToken)
     }
   }
-  
 }
 
+extension ViewController: GIDSignInDelegate {
+  func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+    if error != nil {
+      return
+    }
+    
+    guard let auth = user.authentication else {
+      return
+    }
+    
+    if let userId = user.userID,
+       let idToken = user.authentication.idToken,
+       let fullName = user.profile.name,
+       let email = user.profile.email,
+       let accessToken = user.authentication.accessToken {
+      print("====================", accessToken)
+    }
+  }
+}

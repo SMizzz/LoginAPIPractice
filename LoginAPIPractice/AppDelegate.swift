@@ -7,6 +7,8 @@
 
 import UIKit
 import FBSDKCoreKit
+import Firebase
+import GoogleSignIn
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
     //    configureInitialViewController()
+    FirebaseApp.configure()
+    GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+    
     ApplicationDelegate.shared.application(
       application,
       didFinishLaunchingWithOptions: launchOptions
@@ -28,6 +33,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Called when a new scene session is being created.
     // Use this method to select a configuration to create the new scene with.
     return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+  }
+  
+  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    let handled: Bool
+    if url.absoluteString.contains("fb") {
+      handled = ApplicationDelegate.shared.application(app, open: url, options: options)
+    } else {
+      handled = GIDSignIn.sharedInstance().handle(url)
+    }
+    return handled
   }
 
   func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {

@@ -7,6 +7,7 @@
 
 import UIKit
 import FBSDKCoreKit
+import GoogleSignIn
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -21,18 +22,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     guard let _ = (scene as? UIWindowScene) else { return }
   }
   
-  func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-    guard let url = URLContexts.first?.url else {
-      return
-    }
+//  func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+//
+//
+//    guard let scheme = URLContexts.first?.url.scheme else {
+//      return
+//    }
+//
+//    if scheme.contains("com.googleusercontent.apps") {
+//      GIDSignIn.sharedInstance()?.handle(URLContexts.first?.url)
+//    } else {
+//      let url = URLContexts.first?.url
+//      ApplicationDelegate.shared.application(
+//        UIApplication.shared,
+//        open: url!,
+//        sourceApplication: nil,
+//        annotation: [UIApplication.OpenURLOptionsKey.annotation]
+//      )
+//    }
     
-    ApplicationDelegate.shared.application(
-      UIApplication.shared,
-      open: url,
-      sourceApplication: nil,
-      annotation: [UIApplication.OpenURLOptionsKey.annotation]
-    )
-  }
+//    ApplicationDelegate.shared.application(
+//      UIApplication.shared,
+//      open: url,
+//      sourceApplication: nil,
+//      annotation: [UIApplication.OpenURLOptionsKey.annotation]
+//    )
+    
+//  }
   
   func sceneDidDisconnect(_ scene: UIScene) {
     // Called as the scene is being released by the system.
